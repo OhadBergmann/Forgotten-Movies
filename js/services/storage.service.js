@@ -2,9 +2,9 @@
 
 
 function loadFromStorage(key){
-    return localStorage.getItem(key)
+    return JSON.parse(localStorage.getItem(key))
 }
 
 function saveToStorage(key,value){
-    localStorage.setItem(key,value);
+    localStorage.setItem(key,JSON.stringify(value));
 }

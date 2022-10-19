@@ -1,10 +1,11 @@
 'use strict'
 
+const GENRES_KEY = 'genres-id-name';
 const TMDB_KEY = 'c59ff57d00e327630382a6119087226e';
 
-var gGenres = [];
+var gGenres;
 
-function getGenres(cb) {
+function getGenresApi(cb) {
     const XHR = new XMLHttpRequest();
 
     XHR.onreadystatechange = () => {
@@ -18,9 +19,12 @@ function getGenres(cb) {
     XHR.send();
 }
 
-function _saveAndCallGenres(res,cb){
-    const genres = [];
+function getLocalGenres (){
+    return gGenres = loadFromStorage(GENRES_KEY);
+}
 
-    console.log(res)
-    cb(genres)
+function _saveAndCallGenres(res,cb){
+    gGenres = res.genres;
+    saveToStorage(GENRES_KEY, gGenres);
+    cb(gGenres);
 }
