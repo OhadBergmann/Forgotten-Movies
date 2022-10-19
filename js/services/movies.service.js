@@ -6,6 +6,7 @@ const TMDB_KEY = 'c59ff57d00e327630382a6119087226e';
 var gGenres;
 
 function getGenresApi(cb) {
+    console.log('API')
     const XHR = new XMLHttpRequest();
 
     XHR.onreadystatechange = () => {
@@ -20,7 +21,8 @@ function getGenresApi(cb) {
 }
 
 function getLocalGenres (){
-    return gGenres = loadFromStorage(GENRES_KEY);
+    gGenres = loadFromStorage(GENRES_KEY);
+    return gGenres;
 }
 
 function _saveAndCallGenres(res,cb){

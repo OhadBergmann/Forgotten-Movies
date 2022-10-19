@@ -10,13 +10,15 @@ function onInit(){
 }
 
 
-const _funcGenerateGenresDOM = (res) => {
+function _funcGenerateGenresDOM (res){
+    var strHtml = '';
+    console.log(res)
     for (let i = 0; i < 25; i++) {
         if(res[i]){
-            console.log(res[i])
-            //res[i]
-        } else{
-            return;
+            strHtml +=`<button Class='genre-card' name="${res[i].name}">${res[i].name}</button>`;
         }
     }
+
+    strHtml = $('section.ganre-selection').html().trim() + strHtml;
+    $('section.ganre-selection').html(strHtml);
 }
