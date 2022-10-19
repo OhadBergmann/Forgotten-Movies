@@ -10,10 +10,17 @@ function getGenres(cb) {
     XHR.onreadystatechange = () => {
         if (XHR.readyState === XMLHttpRequest.DONE && XHR.status === 200) {
             const res = JSON.parse(XHR.responseText);
-            cb(res);
+            _saveAndCallGenres(res,cb);
         }
     }
   
     XHR.open('GET', `https://api.themoviedb.org/3/genre/movie/list?api_key=${TMDB_KEY}`, true);
     XHR.send();
+}
+
+function _saveAndCallGenres(res,cb){
+    const genres = [];
+
+    console.log(res)
+    cb(genres)
 }
