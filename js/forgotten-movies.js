@@ -10,12 +10,15 @@ function onInit(){
 }
 
 
+function onLoadMoviesForGenre(name){
+    console.log('loading movies for the ' + name + ' genre')
+}
+
 function _funcGenerateGenresDOM (res){
     var strHtml = '';
-    console.log(res)
     for (let i = 0; i < 25; i++) {
         if(res[i]){
-            strHtml +=`<button Class='genre-card' name="${res[i].name}">${res[i].name}</button>`;
+            strHtml +=`<button Class='genre-card' onclick=onLoadMoviesForGenre('${res[i].name}')>${res[i].name}</button>`;
         }
     }
 
