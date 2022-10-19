@@ -7,10 +7,21 @@
     <title>Forgotten Movies By Ohad Bergmann</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body onload="onInit()">
+    <section>
+        <input list="ganre-list">
+        <datalist id="ganre-list">
+            <option value="Horror">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+          </datalist>
+    </section>
     
     <script src="lib/jquery.js"></script>
     <script src="js/services/storage.service.js"></script>
+    <script src="js/services/movies.service.js"></script>
     <script src="js/forgotten-movies.js"></script>
 </body>
 </html>
